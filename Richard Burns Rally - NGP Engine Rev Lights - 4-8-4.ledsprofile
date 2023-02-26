@@ -1,0 +1,1708 @@
+{
+  "TestLedsGameData": {
+    "GearEx": 0,
+    "FuelMax": 100.0,
+    "RPMSMax": 10000.0,
+    "TurboMax": 3.5,
+    "TurnIndicatorLeftEnabled": false,
+    "TurnIndicatorRightEnabled": false,
+    "SessionBestDeltaEx": 0.0,
+    "AllTimeBestDeltaEx": -1.0,
+    "DRSEnabled": false,
+    "DRSAvailable": false,
+    "MaxRpm": 10000.0,
+    "GameRunning": true,
+    "GameName": "RBR",
+    "Fuel": 0.0,
+    "RPMPercent": 6.8231292517006672,
+    "RPMRedlineReached": false,
+    "SpeedKmh": 0.0,
+    "SpeedMph": 0.0,
+    "Turbo": 0.0,
+    "TurboPercent": 0.0,
+    "Gear": "N",
+    "IsInPitLane": false,
+    "PitLimiterOn": false,
+    "AbsEnabled": false,
+    "AbsActive": false,
+    "TCEnabled": false,
+    "TCActive": false,
+    "LowFuelAlert": false,
+    "SpotterCarLeft": false,
+    "SpotterCarRight": false,
+    "BlackFlag": false,
+    "YellowFlag": false,
+    "WhiteFlag": false,
+    "BlueFlag": false,
+    "GreenFlag": false,
+    "CarModel": "Escort mk 2",
+    "CarStartedTime": "2022-09-16T12:10:20.1644047-07:00",
+    "SessionBestDelta": 0.0,
+    "AllTimeBestDelta": 1.0
+  },
+  "LedContainers": [
+    {
+      "ClearBackgroundWhenActive": true,
+      "LedContainers": [
+        {
+          "LedContainers": [
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] <= 1,1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS03]) / (([GameRawData.CarPhysic.UpshiftsRPMS03] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS03])"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "f5e81e8b-04dc-41f3-ad00-cb32e0a62ea9",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS03] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS03] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "f5df6371-4d52-4828-98e5-3ea5429df84a",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gears R, N, and 1",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 2 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS04]) / (([GameRawData.CarPhysic.UpshiftsRPMS04] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS04])"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "f5e81e8b-04dc-41f3-ad00-cb32e0a62ea9",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS04] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS04] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "caf31cc0-b9ae-41e8-b0d7-8d753f125716",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gear 2",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 3 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS05]) / (([GameRawData.CarPhysic.UpshiftsRPMS05] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS05])"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d8450cd8-5007-4522-a6df-4c75de08e3bf",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS05] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS05] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "0f9c1097-35ca-4252-b8fc-9277d7c4fd5a",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gear 3",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 4 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS06]) / (([GameRawData.CarPhysic.UpshiftsRPMS06] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS06])"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "f5e81e8b-04dc-41f3-ad00-cb32e0a62ea9",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS06] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS06] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "c7ba7ab6-aa35-4a4d-977c-ea8fd5494c86",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gear 4",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 5 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS07]) / (([GameRawData.CarPhysic.UpshiftsRPMS07] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS07])"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "f5e81e8b-04dc-41f3-ad00-cb32e0a62ea9",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS07] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS07] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "229b6604-2842-4017-9264-c7e810e56e5b",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gear 5",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 6 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS08]) / (([GameRawData.CarPhysic.UpshiftsRPMS08] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS08])"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "f5e81e8b-04dc-41f3-ad00-cb32e0a62ea9",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS08] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.UpshiftsRPMS08] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "5372cbe5-5f52-4c63-968b-6254df341404",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gear 6",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == [CarSettings_MaxGears], 1, 0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "StartColor": "Green",
+                  "EndColor": "Green",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "IF ([GameRawData.GearId] == 4,\r\n([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS06]) / (([GameRawData.CarPhysic.RPMLimit] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS06]),\r\n\r\nIF([GameRawData.GearId] == 5,\r\n([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS07]) / (([GameRawData.CarPhysic.RPMLimit] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS07]),\r\n\r\nIF([GameRawData.GearId] == 6,\r\n([GameRawData.EngineRPM] - [GameRawData.CarPhysic.DownshiftsRPMS08]) / (([GameRawData.CarPhysic.RPMLimit] - 600) - [GameRawData.CarPhysic.DownshiftsRPMS08]),\r\n0)))\r\n"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "f5e81e8b-04dc-41f3-ad00-cb32e0a62ea9",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Green RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Yellow",
+                  "EndColor": "Yellow",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.RPMLimit] - 600)) / 400"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "d9b94bb2-abf6-470c-8b7a-aa5b60be3cc6",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Yellow RPMs",
+                  "IsEnabled": true
+                },
+                {
+                  "StartColor": "Red",
+                  "EndColor": "Red",
+                  "MaximumValue": 1.0,
+                  "MinimumValue": 0.0,
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "EnabledFormula": {
+                    "Expression": ""
+                  },
+                  "ValueFormula": {
+                    "Expression": "([GameRawData.EngineRPM] - ([GameRawData.CarPhysic.RPMLimit] - 200)) / 200"
+                  },
+                  "LedCount": 8,
+                  "RightToLeft": false,
+                  "GradientOnAll": false,
+                  "ClearWhenOut": false,
+                  "UseLedDimming": true,
+                  "FillAllLeds": false,
+                  "BlinkDelay": 500,
+                  "BlinkEnabled": false,
+                  "StartPosition": 5,
+                  "ContainerId": "6022e5f3-06b8-4435-a14d-245d7797fbf1",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomGradientContainer",
+                  "Description": "Show Red RPMs",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "9f4f9bfe-23a3-44fb-b291-3348abd20591",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable Gear Max",
+              "IsEnabled": true
+            }
+          ],
+          "StackLeftToRight": false,
+          "StartPosition": 1,
+          "ContainerId": "5e98d74b-3c37-4cef-a60c-4775f2d0e224",
+          "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Base.GroupContainer",
+          "Description": "Engine Rev LEDs",
+          "IsEnabled": true
+        },
+        {
+          "LedContainers": [
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] <= 1,1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS03] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS03] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS03] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS03] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS03] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS03] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "675ac668-987b-4902-83eb-658723cf8cfd",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gears R, N, and 1",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 2 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS04] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS04] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS04] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS04] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS04] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS04] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "c7081688-8896-46c3-b176-0b9a4aed3b11",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gear 2",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 3 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS05] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS05] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS05] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS05] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS05] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS05] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "0e7e1276-e09a-421d-b785-99baf00afb99",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gear 3",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 4 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS06] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS06] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS06] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS06] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS06] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS06] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "71757468-93e8-47ea-836f-8a0c6e149404",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gear 4",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 5 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS07] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS07] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS07] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS07] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS07] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS07] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "0376cdf5-8a6d-410e-ab36-9b6beb742683",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gear 5",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == 6 && [GameRawData.GearId] < [CarSettings_MaxGears],1,0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS08] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS08] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS08] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS08] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS08] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.UpshiftsRPMS08] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "0583897f-ca1a-4bf2-b4d8-52cf5bfdc0eb",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gear 6",
+              "IsEnabled": true
+            },
+            {
+              "TriggerFormula": {
+                "Expression": "IF([GameRawData.GearId] == [CarSettings_MaxGears], 1, 0)"
+              },
+              "ClearBackgroundWhenActive": false,
+              "LedContainers": [
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.RPMLimit] - (5 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "d99d4155-fe3f-4b23-a46a-78536d757662",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.RPMLimit] - (4 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Green",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "ec9e4c1d-88ab-4d10-8b68-eedf627af993",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Green",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.RPMLimit] - (3 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "a707be60-bc02-4ba7-a76c-11e6146b0615",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.RPMLimit] - (2 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Yellow",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "bc28efff-11d0-4b49-a668-fafa8c59ae4a",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Yellow",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.RPMLimit] - (1 * 200), 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 1,
+                  "ContainerId": "f6f27e76-1908-4215-9537-8b143047ac0f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Left Red",
+                  "IsEnabled": true
+                },
+                {
+                  "EnabledFormula": {
+                    "Expression": "IF([GameRawData.EngineRPM] >= [GameRawData.CarPhysic.RPMLimit] - 25, 1, 0)"
+                  },
+                  "BlinkFormula": {
+                    "Expression": ""
+                  },
+                  "LedCount": 4,
+                  "Color": "Red",
+                  "BlinkEnabled": false,
+                  "BlinkDelay": 500,
+                  "DualBlinkTimingEnabled": false,
+                  "OffDelay": 750,
+                  "OnDelay": 125,
+                  "StartPosition": 13,
+                  "ContainerId": "b252ab12-e4c4-47a0-97d7-dbe3a51c516f",
+                  "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.CustomStatusContainer",
+                  "Description": "Shift up - Right Red",
+                  "IsEnabled": true
+                }
+              ],
+              "StackLeftToRight": false,
+              "StartPosition": 1,
+              "ContainerId": "df924cf8-143d-4771-afca-327b2db1e688",
+              "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.CustomConditionalGroupContainer",
+              "Description": "Enable shift indicators - Gear Max",
+              "IsEnabled": true
+            }
+          ],
+          "StackLeftToRight": false,
+          "StartPosition": 1,
+          "ContainerId": "cd32ceb5-c2b9-404a-9be7-19603b745ba7",
+          "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Base.GroupContainer",
+          "Description": "Shift Up Indicators",
+          "IsEnabled": true
+        }
+      ],
+      "StackLeftToRight": false,
+      "StartPosition": 1,
+      "ContainerId": "8c4b89d4-582f-4709-9cff-415c5854d240",
+      "ContainerType": "SimHub.Plugins.DataPlugins.RGBDriver.LedsContainers.Groups.GameRunningGroupContainer",
+      "Description": "Enable content if the game is running",
+      "IsEnabled": true
+    }
+  ],
+  "GlobalBrightness": 10.119999999999864,
+  "UseProfileBrightness": true,
+  "Error": "",
+  "LastLoaded": "2023-02-11T20:56:01.4263196-07:00",
+  "Description": "This profile replicates the RBR NGP Rev indicators using the NGP telemetry and WorkerBee's shift rules. This is a 4-8-4 LED profile. The flag leds are used for the Shift Up indicators.\r\nThe main led rev lights covers the engine rev range for each gear from the downhift rev to max rpm limit. When the ev indicator goes out you are in the Downshift zone.",
+  "Name": "NGP Engine Rev Lights",
+  "ProfileId": "56b57435-cf87-4805-87ab-cae0e4cee487",
+  "GameCode": "RBR"
+}
