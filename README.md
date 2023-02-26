@@ -5,7 +5,7 @@ This is a Simhub LED profile for Richard Burns Rally drivers using DDUs with LED
 
 Workerbee's NGP plugin provides the telemetry data needed to display the gear change indicators displayed in the in-game dash:
 
-![In-Game Dash]()
+![In-Game Dash](images/RBR_In-Game_Dash.jpeg)
 
 The NGP logic for calculating the gear change indicators are described in [Workerbee's forum post](http://www.ly-racing.de/viewtopic.php?t=7928). According to Workerbee, the ideal gear change point is Red-Yellow.
 
