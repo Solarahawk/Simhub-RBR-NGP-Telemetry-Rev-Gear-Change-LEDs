@@ -33,5 +33,5 @@ In Simhub, create a new Arduino RGB LEDs profile and configure it for Richard Bu
 
 ![Example Profile](images/Simhub_RGB_LED_Profile.png)
 
-Then download the [latest release of this led profile](https://github.com/Solarahawk/Simhub-RBR-NGP-Telemetry-Rev-Shift-Lights/releases/latest). Import this LED settings file into your new RBR profile.
+Then download the [latest release of this led profile](https://github.com/Solarahawk/Simhub-RBR-NGP-Telemetry-Rev-Gear-Change-LEDs/releases/latest). Import this LED settings file into your new RBR profile.
 
